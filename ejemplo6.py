@@ -1,22 +1,21 @@
-import msvcrt
-
-porcentaje = 0
-while porcentaje < 100:
-    porcentaje += 25 #incrementar en 25 a la variable
-    print(f"Cargando... {porcentaje}%")
-print("Descarga completa!")
-
-#implementar un bucle que se detenga 
-#cuando la tecla pulsada es "ESC"
-
-print("Bucle en marcha... Presiona la tecla ESC para detenerlo.")
-
+# modificar para que en cada iteracion inserte una nueva linea de un archivo
+import time
+import keyboard
+archivo = open("el_archivo.txt", "w")
+linea = 0
 while True:
-    print("Procesando datos...")  # Aquí va tu código interno
-    
-    # Comprueba si el usuario tocó una tecla
-    if msvcrt.kbhit():
-        # Lee la tecla pulsada y verifica si es ESC (código hexadecimal \x1b)
-        if msvcrt.getch() == b'\x1b':
-            print("\n¡Tecla ESC detectada! Saliendo del bucle de forma segura.")
-            break
+    print("😨***\n")
+    archivo.write(f"{linea} => ************\n")
+    linea += 1
+    if keyboard.is_pressed("esc"):
+        print("\nTecla ESC detectado. Bucle detenido.")
+        break
+
+    #logica de tu programa
+    print("Procesando..." , end = "\r")
+    time.sleep(0.1)
+archivo.close()
+
+
+
+
