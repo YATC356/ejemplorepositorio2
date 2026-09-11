@@ -1,5 +1,5 @@
 #BLOQUE IF
-temperatura = 17
+temperatura = 18
 if temperatura == 17:
     #Acciones si es verdadero.
     print("Es verdad, estoy dentro de la estructura de control IF")
